@@ -18,6 +18,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
+
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
@@ -46,6 +47,8 @@ export const Hero = () => {
           body: JSON.stringify(data),
         }
       );
+
+      console.log("Response:", res);
     } catch (err) {
       console.log("Error:", err);
     }
@@ -83,6 +86,7 @@ export const Hero = () => {
             className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full"
           >
             Master the Art of Success
+           
           </motion.span>
           <motion.h1
             initial={{
