@@ -86,7 +86,6 @@ export const Hero = () => {
             className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full"
           >
             Master the Art of Success
-           
           </motion.span>
           <motion.h1
             initial={{
