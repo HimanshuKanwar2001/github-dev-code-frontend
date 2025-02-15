@@ -41,20 +41,22 @@ export const Hero = () => {
         "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZlMDYzMDA0M2M1MjY4NTUzNzUxMzAi_pc",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+
           body: JSON.stringify(data),
         }
       );
 
-      console.log("Response:", res);
-    } catch (err) {
-      console.log("Error:", err);
-    }
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
 
-    console.log(data);
+      const responseData = await res.json(); // Assuming Pabbly returns JSON
+      console.log("Response:", responseData);
+    } catch (err) {
+      console.error("Error:", err);
+    }
   };
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
